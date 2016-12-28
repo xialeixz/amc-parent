@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/amc-face/amc-face.iml" filepath="$PROJECT_DIR$/amc-face/amc-face.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-manager/amc-manager.iml" filepath="$PROJECT_DIR$/amc-manager/amc-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-param-def/amc-param-def.iml" filepath="$PROJECT_DIR$/amc-param-def/amc-param-def.iml" />
+      <module fileurl="file://D://amc-parent/amc-parent.iml" filepath="D://amc-parent/amc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-web/amc-web.iml" filepath="$PROJECT_DIR$/amc-web/amc-web.iml" />
+    </modules>
+  </component>
+</project>
