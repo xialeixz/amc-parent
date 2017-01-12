@@ -22,17 +22,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="amc-core" />
         <module name="amc-face" />
         <module name="amc-manager" />
         <module name="amc-param-def" />
+        <module name="amc-service-api" />
         <module name="amc-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="amc-api" target="1.5" />
+      <module name="amc-core" target="1.6" />
       <module name="amc-face" target="1.5" />
       <module name="amc-manager" target="1.5" />
       <module name="amc-param-def" target="1.5" />
       <module name="amc-parent" target="1.5" />
+      <module name="amc-service-api" target="1.5" />
       <module name="amc-web" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -7,7 +7,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="amc-web" />
           <element id="module-output" name="amc-param-def" />
-          <element id="module-output" name="amc-face" />
+          <element id="module-output" name="amc-def" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />

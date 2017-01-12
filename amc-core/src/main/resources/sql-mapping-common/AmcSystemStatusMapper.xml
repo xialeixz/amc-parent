@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tpk.amc.core.dao.AmcSystemStatusMapper" >
+  <resultMap id="BaseResultMap" type="com.tpk.amc.core.dto.AmcSystemStatus" >
+    <id column="STATUS_ID" property="statusId" jdbcType="INTEGER" />
+    <result column="BUSINESS_DATE" property="businessDate" jdbcType="DATE" />
+    <result column="PROCESS_DATE" property="processDate" jdbcType="DATE" />
+    <result column="LAST_PROCESS_DATE" property="lastProcessDate" jdbcType="DATE" />
+    <result column="GRACE_TIME" property="graceTime" jdbcType="TIMESTAMP" />
+    <result column="MTN_DATE" property="mtnDate" jdbcType="TIMESTAMP" />
+    <result column="JPA_VERSION" property="jpaVersion" jdbcType="INTEGER" />
+    <result column="AUTO_FLAG" property="autoFlag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    STATUS_ID, BUSINESS_DATE, PROCESS_DATE, LAST_PROCESS_DATE, GRACE_TIME, MTN_DATE, 
+    JPA_VERSION, AUTO_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from amc_system_status
+    where STATUS_ID = #{statusId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from amc_system_status
+    where STATUS_ID = #{statusId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tpk.amc.core.dto.AmcSystemStatus" >
+    insert into amc_system_status (STATUS_ID, BUSINESS_DATE, PROCESS_DATE, 
+      LAST_PROCESS_DATE, GRACE_TIME, MTN_DATE, 
+      JPA_VERSION, AUTO_FLAG)
+    values (#{statusId,jdbcType=INTEGER}, #{businessDate,jdbcType=DATE}, #{processDate,jdbcType=DATE}, 
+      #{lastProcessDate,jdbcType=DATE}, #{graceTime,jdbcType=TIMESTAMP}, #{mtnDate,jdbcType=TIMESTAMP}, 
+      #{jpaVersion,jdbcType=INTEGER}, #{autoFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tpk.amc.core.dto.AmcSystemStatus" >
+    insert into amc_system_status
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="statusId != null" >
+        STATUS_ID,
+      </if>
+      <if test="businessDate != null" >
+        BUSINESS_DATE,
+      </if>
+      <if test="processDate != null" >
+        PROCESS_DATE,
+      </if>
+      <if test="lastProcessDate != null" >
+        LAST_PROCESS_DATE,
+      </if>
+      <if test="graceTime != null" >
+        GRACE_TIME,
+      </if>
+      <if test="mtnDate != null" >
+        MTN_DATE,
+      </if>
+      <if test="jpaVersion != null" >
+        JPA_VERSION,
+      </if>
+      <if test="autoFlag != null" >
+        AUTO_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="statusId != null" >
+        #{statusId,jdbcType=INTEGER},
+      </if>
+      <if test="businessDate != null" >
+        #{businessDate,jdbcType=DATE},
+      </if>
+      <if test="processDate != null" >
+        #{processDate,jdbcType=DATE},
+      </if>
+      <if test="lastProcessDate != null" >
+        #{lastProcessDate,jdbcType=DATE},
+      </if>
+      <if test="graceTime != null" >
+        #{graceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtnDate != null" >
+        #{mtnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jpaVersion != null" >
+        #{jpaVersion,jdbcType=INTEGER},
+      </if>
+      <if test="autoFlag != null" >
+        #{autoFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tpk.amc.core.dto.AmcSystemStatus" >
+    update amc_system_status
+    <set >
+      <if test="businessDate != null" >
+        BUSINESS_DATE = #{businessDate,jdbcType=DATE},
+      </if>
+      <if test="processDate != null" >
+        PROCESS_DATE = #{processDate,jdbcType=DATE},
+      </if>
+      <if test="lastProcessDate != null" >
+        LAST_PROCESS_DATE = #{lastProcessDate,jdbcType=DATE},
+      </if>
+      <if test="graceTime != null" >
+        GRACE_TIME = #{graceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mtnDate != null" >
+        MTN_DATE = #{mtnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jpaVersion != null" >
+        JPA_VERSION = #{jpaVersion,jdbcType=INTEGER},
+      </if>
+      <if test="autoFlag != null" >
+        AUTO_FLAG = #{autoFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where STATUS_ID = #{statusId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcSystemStatus" >
+    update amc_system_status
+    set BUSINESS_DATE = #{businessDate,jdbcType=DATE},
+      PROCESS_DATE = #{processDate,jdbcType=DATE},
+      LAST_PROCESS_DATE = #{lastProcessDate,jdbcType=DATE},
+      GRACE_TIME = #{graceTime,jdbcType=TIMESTAMP},
+      MTN_DATE = #{mtnDate,jdbcType=TIMESTAMP},
+      JPA_VERSION = #{jpaVersion,jdbcType=INTEGER},
+      AUTO_FLAG = #{autoFlag,jdbcType=VARCHAR}
+    where STATUS_ID = #{statusId,jdbcType=INTEGER}
+  </update>
+</mapper>

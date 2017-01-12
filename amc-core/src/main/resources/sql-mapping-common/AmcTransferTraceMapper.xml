@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tpk.amc.core.dao.AmcTransferTraceMapper" >
+  <resultMap id="BaseResultMap" type="com.tpk.amc.core.dto.AmcTransferTrace" >
+    <id column="SYS_TRANS_ID" property="sysTransId" jdbcType="VARCHAR" />
+    <id column="CONSUMER_TRANS_ID" property="consumerTransId" jdbcType="VARCHAR" />
+    <result column="TRANSFER_TYPE" property="transferType" jdbcType="VARCHAR" />
+    <result column="BIZ_DATE" property="bizDate" jdbcType="DATE" />
+    <result column="ORG" property="org" jdbcType="CHAR" />
+    <result column="PRODUCT_CD" property="productCd" jdbcType="CHAR" />
+    <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="ACCT_TYPE" property="acctType" jdbcType="CHAR" />
+    <result column="ACCT_NO" property="acctNo" jdbcType="BIGINT" />
+    <result column="TRANSFER_TIME" property="transferTime" jdbcType="CHAR" />
+    <result column="TRANSFER_STATUS" property="transferStatus" jdbcType="VARCHAR" />
+    <result column="TRANSFER_DESC" property="transferDesc" jdbcType="VARCHAR" />
+    <result column="PAYER_ACCT" property="payerAcct" jdbcType="VARCHAR" />
+    <result column="PAYER_NAME" property="payerName" jdbcType="VARCHAR" />
+    <result column="PAYER_BRNO" property="payerBrno" jdbcType="VARCHAR" />
+    <result column="PAYER_BRNAME" property="payerBrname" jdbcType="VARCHAR" />
+    <result column="PAYEE_ACCT" property="payeeAcct" jdbcType="VARCHAR" />
+    <result column="PAYEE_NAME" property="payeeName" jdbcType="VARCHAR" />
+    <result column="PAYEE_BRNO" property="payeeBrno" jdbcType="VARCHAR" />
+    <result column="PAYEE_BRNAME" property="payeeBrname" jdbcType="VARCHAR" />
+    <result column="AMT" property="amt" jdbcType="VARCHAR" />
+    <result column="FEE" property="fee" jdbcType="VARCHAR" />
+    <result column="B003" property="b003" jdbcType="VARCHAR" />
+    <result column="TRAN_DATE_TIME" property="tranDateTime" jdbcType="VARCHAR" />
+    <result column="REF_NBR" property="refNbr" jdbcType="VARCHAR" />
+    <result column="TRAN_CURR_CODE" property="tranCurrCode" jdbcType="CHAR" />
+    <result column="POST_DATE" property="postDate" jdbcType="DATE" />
+    <result column="RTNCD" property="rtncd" jdbcType="VARCHAR" />
+    <result column="RTNINF" property="rtninf" jdbcType="VARCHAR" />
+    <result column="LAST_MODIFIED_DATETIME" property="lastModifiedDatetime" jdbcType="TIMESTAMP" />
+    <result column="PAY_ROUTE_CODE" property="payRouteCode" jdbcType="VARCHAR" />
+    <result column="WORK_DATE" property="workDate" jdbcType="CHAR" />
+    <result column="RECON_CODE" property="reconCode" jdbcType="VARCHAR" />
+    <result column="TARGET_DCN" property="targetDcn" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SYS_TRANS_ID, CONSUMER_TRANS_ID, TRANSFER_TYPE, BIZ_DATE, ORG, PRODUCT_CD, CARD_NO, 
+    ACCT_TYPE, ACCT_NO, TRANSFER_TIME, TRANSFER_STATUS, TRANSFER_DESC, PAYER_ACCT, PAYER_NAME, 
+    PAYER_BRNO, PAYER_BRNAME, PAYEE_ACCT, PAYEE_NAME, PAYEE_BRNO, PAYEE_BRNAME, AMT, 
+    FEE, B003, TRAN_DATE_TIME, REF_NBR, TRAN_CURR_CODE, POST_DATE, RTNCD, RTNINF, LAST_MODIFIED_DATETIME, 
+    PAY_ROUTE_CODE, WORK_DATE, RECON_CODE, TARGET_DCN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tpk.amc.core.dto.AmcTransferTraceKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from amc_transfer_trace
+    where SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+      and CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcTransferTraceKey" >
+    delete from amc_transfer_trace
+    where SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+      and CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.tpk.amc.core.dto.AmcTransferTrace" >
+    insert into amc_transfer_trace (SYS_TRANS_ID, CONSUMER_TRANS_ID, TRANSFER_TYPE, 
+      BIZ_DATE, ORG, PRODUCT_CD, CARD_NO, 
+      ACCT_TYPE, ACCT_NO, TRANSFER_TIME, 
+      TRANSFER_STATUS, TRANSFER_DESC, PAYER_ACCT, 
+      PAYER_NAME, PAYER_BRNO, PAYER_BRNAME, 
+      PAYEE_ACCT, PAYEE_NAME, PAYEE_BRNO, 
+      PAYEE_BRNAME, AMT, FEE, 
+      B003, TRAN_DATE_TIME, REF_NBR, 
+      TRAN_CURR_CODE, POST_DATE, RTNCD, 
+      RTNINF, LAST_MODIFIED_DATETIME, PAY_ROUTE_CODE, 
+      WORK_DATE, RECON_CODE, TARGET_DCN
+      )
+    values (#{sysTransId,jdbcType=VARCHAR}, #{consumerTransId,jdbcType=VARCHAR}, #{transferType,jdbcType=VARCHAR}, 
+      #{bizDate,jdbcType=DATE}, #{org,jdbcType=CHAR}, #{productCd,jdbcType=CHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{acctType,jdbcType=CHAR}, #{acctNo,jdbcType=BIGINT}, #{transferTime,jdbcType=CHAR}, 
+      #{transferStatus,jdbcType=VARCHAR}, #{transferDesc,jdbcType=VARCHAR}, #{payerAcct,jdbcType=VARCHAR}, 
+      #{payerName,jdbcType=VARCHAR}, #{payerBrno,jdbcType=VARCHAR}, #{payerBrname,jdbcType=VARCHAR}, 
+      #{payeeAcct,jdbcType=VARCHAR}, #{payeeName,jdbcType=VARCHAR}, #{payeeBrno,jdbcType=VARCHAR}, 
+      #{payeeBrname,jdbcType=VARCHAR}, #{amt,jdbcType=VARCHAR}, #{fee,jdbcType=VARCHAR}, 
+      #{b003,jdbcType=VARCHAR}, #{tranDateTime,jdbcType=VARCHAR}, #{refNbr,jdbcType=VARCHAR}, 
+      #{tranCurrCode,jdbcType=CHAR}, #{postDate,jdbcType=DATE}, #{rtncd,jdbcType=VARCHAR}, 
+      #{rtninf,jdbcType=VARCHAR}, #{lastModifiedDatetime,jdbcType=TIMESTAMP}, #{payRouteCode,jdbcType=VARCHAR}, 
+      #{workDate,jdbcType=CHAR}, #{reconCode,jdbcType=VARCHAR}, #{targetDcn,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tpk.amc.core.dto.AmcTransferTrace" >
+    insert into amc_transfer_trace
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysTransId != null" >
+        SYS_TRANS_ID,
+      </if>
+      <if test="consumerTransId != null" >
+        CONSUMER_TRANS_ID,
+      </if>
+      <if test="transferType != null" >
+        TRANSFER_TYPE,
+      </if>
+      <if test="bizDate != null" >
+        BIZ_DATE,
+      </if>
+      <if test="org != null" >
+        ORG,
+      </if>
+      <if test="productCd != null" >
+        PRODUCT_CD,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="acctType != null" >
+        ACCT_TYPE,
+      </if>
+      <if test="acctNo != null" >
+        ACCT_NO,
+      </if>
+      <if test="transferTime != null" >
+        TRANSFER_TIME,
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS,
+      </if>
+      <if test="transferDesc != null" >
+        TRANSFER_DESC,
+      </if>
+      <if test="payerAcct != null" >
+        PAYER_ACCT,
+      </if>
+      <if test="payerName != null" >
+        PAYER_NAME,
+      </if>
+      <if test="payerBrno != null" >
+        PAYER_BRNO,
+      </if>
+      <if test="payerBrname != null" >
+        PAYER_BRNAME,
+      </if>
+      <if test="payeeAcct != null" >
+        PAYEE_ACCT,
+      </if>
+      <if test="payeeName != null" >
+        PAYEE_NAME,
+      </if>
+      <if test="payeeBrno != null" >
+        PAYEE_BRNO,
+      </if>
+      <if test="payeeBrname != null" >
+        PAYEE_BRNAME,
+      </if>
+      <if test="amt != null" >
+        AMT,
+      </if>
+      <if test="fee != null" >
+        FEE,
+      </if>
+      <if test="b003 != null" >
+        B003,
+      </if>
+      <if test="tranDateTime != null" >
+        TRAN_DATE_TIME,
+      </if>
+      <if test="refNbr != null" >
+        REF_NBR,
+      </if>
+      <if test="tranCurrCode != null" >
+        TRAN_CURR_CODE,
+      </if>
+      <if test="postDate != null" >
+        POST_DATE,
+      </if>
+      <if test="rtncd != null" >
+        RTNCD,
+      </if>
+      <if test="rtninf != null" >
+        RTNINF,
+      </if>
+      <if test="lastModifiedDatetime != null" >
+        LAST_MODIFIED_DATETIME,
+      </if>
+      <if test="payRouteCode != null" >
+        PAY_ROUTE_CODE,
+      </if>
+      <if test="workDate != null" >
+        WORK_DATE,
+      </if>
+      <if test="reconCode != null" >
+        RECON_CODE,
+      </if>
+      <if test="targetDcn != null" >
+        TARGET_DCN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysTransId != null" >
+        #{sysTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerTransId != null" >
+        #{consumerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="transferType != null" >
+        #{transferType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        #{bizDate,jdbcType=DATE},
+      </if>
+      <if test="org != null" >
+        #{org,jdbcType=CHAR},
+      </if>
+      <if test="productCd != null" >
+        #{productCd,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null" >
+        #{acctType,jdbcType=CHAR},
+      </if>
+      <if test="acctNo != null" >
+        #{acctNo,jdbcType=BIGINT},
+      </if>
+      <if test="transferTime != null" >
+        #{transferTime,jdbcType=CHAR},
+      </if>
+      <if test="transferStatus != null" >
+        #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="transferDesc != null" >
+        #{transferDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAcct != null" >
+        #{payerAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="payerName != null" >
+        #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="payerBrno != null" >
+        #{payerBrno,jdbcType=VARCHAR},
+      </if>
+      <if test="payerBrname != null" >
+        #{payerBrname,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAcct != null" >
+        #{payeeAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeName != null" >
+        #{payeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBrno != null" >
+        #{payeeBrno,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBrname != null" >
+        #{payeeBrname,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        #{amt,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="b003 != null" >
+        #{b003,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDateTime != null" >
+        #{tranDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null" >
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCurrCode != null" >
+        #{tranCurrCode,jdbcType=CHAR},
+      </if>
+      <if test="postDate != null" >
+        #{postDate,jdbcType=DATE},
+      </if>
+      <if test="rtncd != null" >
+        #{rtncd,jdbcType=VARCHAR},
+      </if>
+      <if test="rtninf != null" >
+        #{rtninf,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifiedDatetime != null" >
+        #{lastModifiedDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payRouteCode != null" >
+        #{payRouteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null" >
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="reconCode != null" >
+        #{reconCode,jdbcType=VARCHAR},
+      </if>
+      <if test="targetDcn != null" >
+        #{targetDcn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tpk.amc.core.dto.AmcTransferTrace" >
+    update amc_transfer_trace
+    <set >
+      <if test="transferType != null" >
+        TRANSFER_TYPE = #{transferType,jdbcType=VARCHAR},
+      </if>
+      <if test="bizDate != null" >
+        BIZ_DATE = #{bizDate,jdbcType=DATE},
+      </if>
+      <if test="org != null" >
+        ORG = #{org,jdbcType=CHAR},
+      </if>
+      <if test="productCd != null" >
+        PRODUCT_CD = #{productCd,jdbcType=CHAR},
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="acctType != null" >
+        ACCT_TYPE = #{acctType,jdbcType=CHAR},
+      </if>
+      <if test="acctNo != null" >
+        ACCT_NO = #{acctNo,jdbcType=BIGINT},
+      </if>
+      <if test="transferTime != null" >
+        TRANSFER_TIME = #{transferTime,jdbcType=CHAR},
+      </if>
+      <if test="transferStatus != null" >
+        TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="transferDesc != null" >
+        TRANSFER_DESC = #{transferDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAcct != null" >
+        PAYER_ACCT = #{payerAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="payerName != null" >
+        PAYER_NAME = #{payerName,jdbcType=VARCHAR},
+      </if>
+      <if test="payerBrno != null" >
+        PAYER_BRNO = #{payerBrno,jdbcType=VARCHAR},
+      </if>
+      <if test="payerBrname != null" >
+        PAYER_BRNAME = #{payerBrname,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAcct != null" >
+        PAYEE_ACCT = #{payeeAcct,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeName != null" >
+        PAYEE_NAME = #{payeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBrno != null" >
+        PAYEE_BRNO = #{payeeBrno,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeBrname != null" >
+        PAYEE_BRNAME = #{payeeBrname,jdbcType=VARCHAR},
+      </if>
+      <if test="amt != null" >
+        AMT = #{amt,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null" >
+        FEE = #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="b003 != null" >
+        B003 = #{b003,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDateTime != null" >
+        TRAN_DATE_TIME = #{tranDateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null" >
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="tranCurrCode != null" >
+        TRAN_CURR_CODE = #{tranCurrCode,jdbcType=CHAR},
+      </if>
+      <if test="postDate != null" >
+        POST_DATE = #{postDate,jdbcType=DATE},
+      </if>
+      <if test="rtncd != null" >
+        RTNCD = #{rtncd,jdbcType=VARCHAR},
+      </if>
+      <if test="rtninf != null" >
+        RTNINF = #{rtninf,jdbcType=VARCHAR},
+      </if>
+      <if test="lastModifiedDatetime != null" >
+        LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payRouteCode != null" >
+        PAY_ROUTE_CODE = #{payRouteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null" >
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="reconCode != null" >
+        RECON_CODE = #{reconCode,jdbcType=VARCHAR},
+      </if>
+      <if test="targetDcn != null" >
+        TARGET_DCN = #{targetDcn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+      and CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcTransferTrace" >
+    update amc_transfer_trace
+    set TRANSFER_TYPE = #{transferType,jdbcType=VARCHAR},
+      BIZ_DATE = #{bizDate,jdbcType=DATE},
+      ORG = #{org,jdbcType=CHAR},
+      PRODUCT_CD = #{productCd,jdbcType=CHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      ACCT_TYPE = #{acctType,jdbcType=CHAR},
+      ACCT_NO = #{acctNo,jdbcType=BIGINT},
+      TRANSFER_TIME = #{transferTime,jdbcType=CHAR},
+      TRANSFER_STATUS = #{transferStatus,jdbcType=VARCHAR},
+      TRANSFER_DESC = #{transferDesc,jdbcType=VARCHAR},
+      PAYER_ACCT = #{payerAcct,jdbcType=VARCHAR},
+      PAYER_NAME = #{payerName,jdbcType=VARCHAR},
+      PAYER_BRNO = #{payerBrno,jdbcType=VARCHAR},
+      PAYER_BRNAME = #{payerBrname,jdbcType=VARCHAR},
+      PAYEE_ACCT = #{payeeAcct,jdbcType=VARCHAR},
+      PAYEE_NAME = #{payeeName,jdbcType=VARCHAR},
+      PAYEE_BRNO = #{payeeBrno,jdbcType=VARCHAR},
+      PAYEE_BRNAME = #{payeeBrname,jdbcType=VARCHAR},
+      AMT = #{amt,jdbcType=VARCHAR},
+      FEE = #{fee,jdbcType=VARCHAR},
+      B003 = #{b003,jdbcType=VARCHAR},
+      TRAN_DATE_TIME = #{tranDateTime,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      TRAN_CURR_CODE = #{tranCurrCode,jdbcType=CHAR},
+      POST_DATE = #{postDate,jdbcType=DATE},
+      RTNCD = #{rtncd,jdbcType=VARCHAR},
+      RTNINF = #{rtninf,jdbcType=VARCHAR},
+      LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP},
+      PAY_ROUTE_CODE = #{payRouteCode,jdbcType=VARCHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      RECON_CODE = #{reconCode,jdbcType=VARCHAR},
+      TARGET_DCN = #{targetDcn,jdbcType=VARCHAR}
+    where SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+      and CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+  </update>
+</mapper>

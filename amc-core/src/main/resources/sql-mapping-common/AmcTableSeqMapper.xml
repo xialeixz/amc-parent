@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tpk.amc.core.dao.AmcTableSeqMapper" >
+  <resultMap id="BaseResultMap" type="com.tpk.amc.core.dto.AmcTableSeq" >
+    <id column="TABLE_NAME" property="tableName" jdbcType="VARCHAR" />
+    <result column="SEQ_VAL" property="seqVal" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TABLE_NAME, SEQ_VAL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from amc_table_seq
+    where TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from amc_table_seq
+    where TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.tpk.amc.core.dto.AmcTableSeq" >
+    insert into amc_table_seq (TABLE_NAME, SEQ_VAL)
+    values (#{tableName,jdbcType=VARCHAR}, #{seqVal,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tpk.amc.core.dto.AmcTableSeq" >
+    insert into amc_table_seq
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tableName != null" >
+        TABLE_NAME,
+      </if>
+      <if test="seqVal != null" >
+        SEQ_VAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tableName != null" >
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="seqVal != null" >
+        #{seqVal,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tpk.amc.core.dto.AmcTableSeq" >
+    update amc_table_seq
+    <set >
+      <if test="seqVal != null" >
+        SEQ_VAL = #{seqVal,jdbcType=BIGINT},
+      </if>
+    </set>
+    where TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcTableSeq" >
+    update amc_table_seq
+    set SEQ_VAL = #{seqVal,jdbcType=BIGINT}
+    where TABLE_NAME = #{tableName,jdbcType=VARCHAR}
+  </update>
+</mapper>

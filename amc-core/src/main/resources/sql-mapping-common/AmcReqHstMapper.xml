@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tpk.amc.core.dao.AmcReqHstMapper">
+  <resultMap id="BaseResultMap" type="com.tpk.amc.core.dto.AmcReqHst">
+    <id column="CONSUMER_TRANS_ID" jdbcType="VARCHAR" property="consumerTransId" />
+    <id column="SYS_TRANS_ID" jdbcType="VARCHAR" property="sysTransId" />
+    <result column="CHANNEL_ID" jdbcType="VARCHAR" property="channelId" />
+    <result column="CARD_NO" jdbcType="VARCHAR" property="cardNo" />
+    <result column="B003" jdbcType="VARCHAR" property="b003" />
+    <result column="REF_NBR" jdbcType="VARCHAR" property="refNbr" />
+    <result column="B039" jdbcType="CHAR" property="b039" />
+    <result column="RESP_DESC" jdbcType="VARCHAR" property="respDesc" />
+    <result column="ORIG_DATA" jdbcType="VARCHAR" property="origData" />
+    <result column="MSG_CONTENT" jdbcType="VARCHAR" property="msgContent" />
+    <result column="CREATED_DATETIME" jdbcType="TIMESTAMP" property="createdDatetime" />
+    <result column="LAST_MODIFIED_DATETIME" jdbcType="TIMESTAMP" property="lastModifiedDatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CONSUMER_TRANS_ID, SYS_TRANS_ID, CHANNEL_ID, CARD_NO, B003, REF_NBR, B039, RESP_DESC, 
+    ORIG_DATA, MSG_CONTENT, CREATED_DATETIME, LAST_MODIFIED_DATETIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcReqHstKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from amc_req_hst
+    where CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+      and SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcReqHstKey">
+    delete from amc_req_hst
+    where CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+      and SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.tpk.amc.core.dto.AmcReqHst">
+    insert into amc_req_hst (CONSUMER_TRANS_ID, SYS_TRANS_ID, CHANNEL_ID, 
+      CARD_NO, B003, REF_NBR, 
+      B039, RESP_DESC, ORIG_DATA, 
+      MSG_CONTENT, CREATED_DATETIME, LAST_MODIFIED_DATETIME
+      )
+    values (#{consumerTransId,jdbcType=VARCHAR}, #{sysTransId,jdbcType=VARCHAR}, #{channelId,jdbcType=VARCHAR}, 
+      #{cardNo,jdbcType=VARCHAR}, #{b003,jdbcType=VARCHAR}, #{refNbr,jdbcType=VARCHAR}, 
+      #{b039,jdbcType=CHAR}, #{respDesc,jdbcType=VARCHAR}, #{origData,jdbcType=VARCHAR}, 
+      #{msgContent,jdbcType=VARCHAR}, #{createdDatetime,jdbcType=TIMESTAMP}, #{lastModifiedDatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tpk.amc.core.dto.AmcReqHst">
+    insert into amc_req_hst
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="consumerTransId != null">
+        CONSUMER_TRANS_ID,
+      </if>
+      <if test="sysTransId != null">
+        SYS_TRANS_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="cardNo != null">
+        CARD_NO,
+      </if>
+      <if test="b003 != null">
+        B003,
+      </if>
+      <if test="refNbr != null">
+        REF_NBR,
+      </if>
+      <if test="b039 != null">
+        B039,
+      </if>
+      <if test="respDesc != null">
+        RESP_DESC,
+      </if>
+      <if test="origData != null">
+        ORIG_DATA,
+      </if>
+      <if test="msgContent != null">
+        MSG_CONTENT,
+      </if>
+      <if test="createdDatetime != null">
+        CREATED_DATETIME,
+      </if>
+      <if test="lastModifiedDatetime != null">
+        LAST_MODIFIED_DATETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="consumerTransId != null">
+        #{consumerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="sysTransId != null">
+        #{sysTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="b003 != null">
+        #{b003,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="b039 != null">
+        #{b039,jdbcType=CHAR},
+      </if>
+      <if test="respDesc != null">
+        #{respDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="origData != null">
+        #{origData,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null">
+        #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDatetime != null">
+        #{createdDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifiedDatetime != null">
+        #{lastModifiedDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tpk.amc.core.dto.AmcReqHst">
+    update amc_req_hst
+    <set>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null">
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="b003 != null">
+        B003 = #{b003,jdbcType=VARCHAR},
+      </if>
+      <if test="refNbr != null">
+        REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="b039 != null">
+        B039 = #{b039,jdbcType=CHAR},
+      </if>
+      <if test="respDesc != null">
+        RESP_DESC = #{respDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="origData != null">
+        ORIG_DATA = #{origData,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null">
+        MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDatetime != null">
+        CREATED_DATETIME = #{createdDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastModifiedDatetime != null">
+        LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+      and SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tpk.amc.core.dto.AmcReqHst">
+    update amc_req_hst
+    set CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      B003 = #{b003,jdbcType=VARCHAR},
+      REF_NBR = #{refNbr,jdbcType=VARCHAR},
+      B039 = #{b039,jdbcType=CHAR},
+      RESP_DESC = #{respDesc,jdbcType=VARCHAR},
+      ORIG_DATA = #{origData,jdbcType=VARCHAR},
+      MSG_CONTENT = #{msgContent,jdbcType=VARCHAR},
+      CREATED_DATETIME = #{createdDatetime,jdbcType=TIMESTAMP},
+      LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP}
+    where CONSUMER_TRANS_ID = #{consumerTransId,jdbcType=VARCHAR}
+      and SYS_TRANS_ID = #{sysTransId,jdbcType=VARCHAR}
+  </update>
+</mapper>

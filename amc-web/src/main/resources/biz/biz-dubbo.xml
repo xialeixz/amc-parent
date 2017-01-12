@@ -12,5 +12,5 @@
     <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry address="zookeeper://127.0.0.1:11224" />
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
-    <dubbo:reference id="managerService" interface="com.tpk.amc.face.interfacz.manager.BaseManagerFace" />
+    <dubbo:reference id="managerService" interface="com.tpk.amc.face.interfacz.core.BaseManagerFace" />
 </beans>

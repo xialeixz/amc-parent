@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/amc-face/amc-face.iml" filepath="$PROJECT_DIR$/amc-face/amc-face.iml" />
-      <module fileurl="file://$PROJECT_DIR$/amc-manager/amc-manager.iml" filepath="$PROJECT_DIR$/amc-manager/amc-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-core/amc-core.iml" filepath="$PROJECT_DIR$/amc-core/amc-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/amc-param-def/amc-param-def.iml" filepath="$PROJECT_DIR$/amc-param-def/amc-param-def.iml" />
-      <module fileurl="file://D://amc-parent/amc-parent.iml" filepath="D://amc-parent/amc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-parent.iml" filepath="$PROJECT_DIR$/amc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amc-service-api/amc-service-api.iml" filepath="$PROJECT_DIR$/amc-service-api/amc-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/amc-web/amc-web.iml" filepath="$PROJECT_DIR$/amc-web/amc-web.iml" />
     </modules>
   </component>

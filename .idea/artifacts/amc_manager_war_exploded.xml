@@ -4,11 +4,11 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="amc-manager" />
+          <element id="module-output" name="amc-core" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="amc-face-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="amc-face" />
+            <element id="module-output" name="amc-def" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
@@ -50,9 +50,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/amc-manager/target/amc-manager/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/amc-core/target/amc-manager/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="amc-manager/web/Web" />
+      <element id="javaee-facet-resources" facet="amc-core/web/Web" />
     </root>
   </artifact>
 </component>
