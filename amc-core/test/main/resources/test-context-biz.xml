@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd">
+
+    <context:component-scan base-package="com.tpk.amc.core" />
+
+    <jdbc:embedded-database id="embdDataSource" type="HSQL">
+        <jdbc:script location="classpath:/init-db.sql" />
+        <jdbc:script location="classpath:/init-data.sql" />
+    </jdbc:embedded-database>
+
+    <!-- Custom sql formatter  -->
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="embdDataSource" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="[SQL] " />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="embdDataSource" />
+        <property name="mapperLocations" value="classpath:sql-mapping-common/*.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.tpk.amc.core.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="embdDataSource" />
+    </bean>
+</beans>
