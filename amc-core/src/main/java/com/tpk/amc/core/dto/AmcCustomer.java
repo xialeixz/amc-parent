@@ -1,7 +1,6 @@
 package com.tpk.amc.core.dto;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import java.util.Date;
 
 public class AmcCustomer {

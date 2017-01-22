@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="amc-core:war">
-    <output-path>$PROJECT_DIR$/amc-core/target</output-path>
-    <root id="archive" name="amc-manager.war">
-      <element id="artifact" artifact-name="amc-core:war exploded" />
-    </root>
-  </artifact>
-</component>

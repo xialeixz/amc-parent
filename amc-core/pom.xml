@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>amc-parent</artifactId>
@@ -9,6 +11,9 @@
     <artifactId>amc-core</artifactId>
     <packaging>war</packaging>
     <name>amc-core</name>
+    <properties>
+        <log4jdbc-version>0.2.7</log4jdbc-version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.tpk.amc</groupId>
@@ -20,6 +25,17 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.2.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>${log4jdbc-version}</version>
         </dependency>
     </dependencies>
     <build>

@@ -2,12 +2,13 @@ package com.tpk.amc.service.api.protocol.customer;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by jasonxxia on 2017/1/11.
  */
-public class CustomerDto{
+public class CustomerDto implements Serializable {
     private Long custId;
 
     private String org;

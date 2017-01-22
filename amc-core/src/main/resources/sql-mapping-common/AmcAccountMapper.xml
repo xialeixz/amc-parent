@@ -221,4 +221,58 @@
     where ACCT_NO = #{acctNo,jdbcType=BIGINT}
       and ACCT_TYPE = #{acctType,jdbcType=CHAR}
   </update>
+  <select id="selectBySelective" parameterType="com.tpk.amc.core.dto.AmcAccount" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    FROM amc_account
+    WHERE 1 = 1
+    <if test="org != null" >
+      and ORG = #{org,jdbcType=CHAR}
+    </if>
+    <if test="acctNo != null" >
+      and ACCT_NO = #{acctNo,jdbcType=BIGINT}
+    </if>
+    <if test="acctType != null" >
+      and ACCT_TYPE = #{acctType,jdbcType=CHAR}
+    </if>
+    <if test="custId != null" >
+      and CUST_ID = #{custId,jdbcType=BIGINT}
+    </if>
+    <if test="custLimitId != null" >
+      and CUST_LIMIT_ID = #{custLimitId,jdbcType=BIGINT}
+    </if>
+    <if test="productCd != null" >
+      and PRODUCT_CD = #{productCd,jdbcType=CHAR}
+    </if>
+    <if test="defaultLogicalCardNo != null" >
+      and DEFAULT_LOGICAL_CARD_NO = #{defaultLogicalCardNo,jdbcType=VARCHAR}
+    </if>
+    <if test="currCd != null" >
+      and CURR_CD = #{currCd,jdbcType=CHAR}
+    </if>
+    <if test="creditLimit != null" >
+      and CREDIT_LIMIT = #{creditLimit,jdbcType=DECIMAL}
+    </if>
+    <if test="currBal != null" >
+      and CURR_BAL = #{currBal,jdbcType=DECIMAL}
+    </if>
+    <if test="email != null" >
+      and EMAIL = #{email,jdbcType=VARCHAR}
+    </if>
+    <if test="mobileNo != null" >
+      and MOBILE_NO = #{mobileNo,jdbcType=VARCHAR}
+    </if>
+    <if test="createdDatetime != null" >
+      and CREATED_DATETIME = #{createdDatetime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="lastModifiedDatetime != null" >
+      and LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="blockCode != null" >
+      and BLOCK_CODE = #{blockCode,jdbcType=VARCHAR}
+    </if>
+    <if test="lockDate != null" >
+      and LOCK_DATE = #{lockDate,jdbcType=DATE}
+    </if>
+  </select>
 </mapper>

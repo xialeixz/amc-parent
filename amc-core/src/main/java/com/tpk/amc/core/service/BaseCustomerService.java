@@ -16,7 +16,7 @@ import java.util.List;
  * Created by jasonxxia on 2016/12/14.
  */
 @Service
-public class CustomerService implements BaseCustomerServiceApi {
+public class BaseCustomerService implements BaseCustomerServiceApi {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 

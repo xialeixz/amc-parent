@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/amc-core/test/main/resources/init-data.sql" dialect="HSQLDB" />
+    <file url="file://$PROJECT_DIR$/amc-core/test/main/resources/init-db.sql" dialect="HSQLDB" />
     <file url="file://$PROJECT_DIR$/env-init/data-init/acct-data-init.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/env-init/data-init/cust-data-init.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/env-init/data-init/req-data-init.sql" dialect="MySQL" />

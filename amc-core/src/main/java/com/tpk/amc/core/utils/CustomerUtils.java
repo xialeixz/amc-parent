@@ -3,6 +3,7 @@ package com.tpk.amc.core.utils;
 import com.tpk.amc.core.dto.AmcCustomer;
 import com.tpk.amc.service.api.protocol.customer.CustomerDto;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Created by jasonxxia on 2017/1/12.
  */
+@Component
 public class CustomerUtils {
 
     public AmcCustomer fromApiDto(CustomerDto customerDto){

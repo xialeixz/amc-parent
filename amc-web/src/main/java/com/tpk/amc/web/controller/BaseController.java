@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by jasonxxia on 2016/12/28.
  */
 @Controller
-public class ManagerController {
+public class BaseController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 

@@ -209,4 +209,55 @@
       CREATED_DATETIME = #{createdDatetime,jdbcType=TIMESTAMP}
     where CUST_ID = #{custId,jdbcType=BIGINT}
   </update>
+  <select id="selectBySelective" parameterType="com.tpk.amc.core.dto.AmcCustomer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from amc_customer
+    WHERE 1=1
+    <if test="org != null" >
+      and ORG = #{org,jdbcType=CHAR}
+    </if>
+    <if test="custId != null" >
+      and CUST_ID = #{custId,jdbcType=BIGINT}
+    </if>
+    <if test="idNo != null" >
+        and ID_NO = #{idNo,jdbcType=VARCHAR}
+    </if>
+    <if test="idType != null" >
+        and ID_TYPE = #{idType,jdbcType=CHAR}
+    </if>
+    <if test="title != null" >
+        and TITLE = #{title,jdbcType=CHAR}
+    </if>
+    <if test="name != null" >
+        and NAME = #{name,jdbcType=VARCHAR}
+    </if>
+    <if test="gender != null" >
+        and GENDER = #{gender,jdbcType=CHAR}
+    </if>
+    <if test="birthday != null" >
+        and BIRTHDAY = #{birthday,jdbcType=DATE}
+    </if>
+    <if test="nationality != null" >
+        and NATIONALITY = #{nationality,jdbcType=CHAR}
+    </if>
+    <if test="mobileNo != null" >
+        and MOBILE_NO = #{mobileNo,jdbcType=VARCHAR}
+    </if>
+    <if test="email != null" >
+        and EMAIL = #{email,jdbcType=VARCHAR}
+    </if>
+    <if test="setupDate != null" >
+        and SETUP_DATE = #{setupDate,jdbcType=DATE}
+    </if>
+    <if test="jpaVersion != null" >
+        and JPA_VERSION = #{jpaVersion,jdbcType=INTEGER}
+    </if>
+    <if test="lastModifiedDatetime != null" >
+        and LAST_MODIFIED_DATETIME = #{lastModifiedDatetime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="createdDatetime != null" >
+        and CREATED_DATETIME = #{createdDatetime,jdbcType=TIMESTAMP}
+    </if>
+  </select>
 </mapper>

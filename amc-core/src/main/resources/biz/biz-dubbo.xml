@@ -7,10 +7,10 @@
             http://code.alibabatech.com/schema/dubbo
             http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="amc-manager-server" />
+    <dubbo:application name="amc-core-server" />
     <!-- 消息中心地址 -->
     <dubbo:registry address="zookeeper://127.0.0.1:11224" check="false"/>
     <dubbo:protocol name="dubbo" port="21880" serialization="hessian2" />
     <!-- 声明接口 -->
-    <dubbo:service interface="com.tpk.amc.service.api.customer.BaseCustomerServiceApi" ref="baseCustomerServiceApi" />
+    <dubbo:service interface="com.tpk.amc.service.api.customer.BaseCustomerServiceApi" ref="baseCustomerService" />
 </beans>
